@@ -1,1 +1,1 @@
-# Work-Guess-Game
+# Word-Guess-Game
