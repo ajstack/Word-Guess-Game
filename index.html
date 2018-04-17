@@ -4,10 +4,31 @@
     <meta charset="utf-8" />
     <title>Word Guess Game!</title>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <script src="assets/javascript/game.js"></script>
 </head>
 <body>
-    
+    <div class="wrapper">
+        <section id="header">
+            <h1 id="title">Hangman</h1>
+            <h2 id="subTitle">Batman</h2>
+        </section>
+
+        <section id="mainBody">
+            <div id="photo">
+                <img id="batman" src="assets/images/batmanPhoto.jpg" alt="batmanPhoto">
+            </div>
+            <div id="game">
+                <p id="intro">Press any key to get started!</p>
+                <h3>Current word</h3>
+                <div id="word"></div>
+                <h3>Number of guesses remaining</h3>
+                <div id="guessNum"></div>
+                <h3>Letters already guessed</h3>
+                <div id="guesses"></div>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
