@@ -23,15 +23,16 @@ document.onkeyup = function(event) {
 
 var userGuess = event.key;
 
-letters.textContent = event.key; // Cannot set property textContent of null error 
+// determine what key is pressed
+letters.textContent = event.key; 
+
+// make all keys uppercase
+
+// keep track of all letters pressed
 
 // computer chooses a random word form array
 
 // display how many letters from word chosen
-
-// determine what key is pressed
-
-// make all keys uppercase
 
 // for loop (var i=0; i<=(forever? until words run out?); i++)
     // if statement
