@@ -23,10 +23,11 @@ document.onkeyup = function(event) {
 
 var userGuess = event.key;
 
+// make all keys uppercase
+//.toLowerCase()
+
 // determine what key is pressed
 letters.textContent = event.key; 
-
-// make all keys uppercase
 
 // keep track of all letters pressed
 
