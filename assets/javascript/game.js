@@ -14,17 +14,21 @@ var wordList = [
 ];
 
 // setup do display to html
-var winCount = document.getElementById("winCount");
-var word = document.getElementById("word");
-var guessCount = document.getElementById("guessCount");
-var attemptsLeft = 10;
-var letters = document.getElementById("letters");
-var win = wordLength;
-var output = "";
-var display = [wordLength];
+var winCount = document.getElementById("winCount");     // How many times user has won
+var word = document.getElementById("word");             // Word chosen
+var guessCount = document.getElementById("guessCount"); // How many guesses left display
+var attemptsLeft = 10;                                  // Setting number of guesses
+var letters = document.getElementById("letters");       // incorrect letters already guessed
+var display = [wordLength];                             // display _ 
+var win = wordLength;                                   // number of correct letters needed to win
+var output = "";                                        // set original output to nothing
+
 
 // Display how many guesses left
 guessCount.textContent = attemptsLeft;
+
+
+// Display initial wins
 winCount.textContent = 0;
 
 
@@ -35,16 +39,11 @@ var wordLength = answer.length;
 
 
 // display how many letters from word chosen {not working}
-
-var setup = function(){
-    for (var i = 0; i < answer.length; i++) {
-        display[i] = "_ ";
-        output = output + display[i];
-    }
-
-    word.textContent = output;
-    
+for (var i = 0; i < answer.length; i++) {
+    display[i] = "_ ";
+    display.textContent = word; 
 }
+
 // onkeyup function event
 document.onkeyup = function(event) {
 var userGuess = event.key;
@@ -55,17 +54,22 @@ userGuess = userGuess.toUpperCase();
 // print guess to html
 letters.textContent = userGuess; 
 
-// keep track of all letters pressed // trigger-random-unsolved week 4 day 2
+// keep track of all letters pressed // trigger-random-unsolved week 4 day 2 // drinklist-solved
 
+//for (var i = 0; i < _____ ; i++) {
+
+    //_____.appendChild(letters)
+//}
 
 // for loop (var i=0; i<=(forever? until words run out?); i++)
     // if statement
-        // if word has been guessed wins++
-        // else if #guessCount=0 
+        // if word has been guessed  
+        //winCount++ 
+        // else if #guessCount=0, restart
         //else
             // if statement
                 // if letter is in word, display in #word
-                // else letter is not in word, display in #letters, #guessCount -1
+                // else letter is not in word, display in letters, guessCount -1
 
 
 }
