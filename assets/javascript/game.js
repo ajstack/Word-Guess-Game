@@ -17,9 +17,15 @@ var wordList = [
 var winCount = document.getElementById("winCount");
 var word = document.getElementById("word");
 var guessCount = document.getElementById("guessCount");
-    guessCount.textcontent = 10;
+var attemptsLeft = 10;
 var letters = document.getElementById("letters");
 var win = wordLength;
+var output = "";
+var display = [wordLength];
+
+// Display how many guesses left
+guessCount.textContent = attemptsLeft;
+winCount.textContent = 0;
 
 
 // Choose random # to correspond with array words
@@ -28,14 +34,17 @@ var answer = wordList[choice];
 var wordLength = answer.length;
 
 
-// display how many letters from word chosen
-var display = [wordLength];
+// display how many letters from word chosen {not working}
 
-for (var i = 0; i < answer.length; i++) {
-    display[i] = "_ ";
+var setup = function(){
+    for (var i = 0; i < answer.length; i++) {
+        display[i] = "_ ";
+        output = output + display[i];
+    }
 
-}
+    word.textContent = output;
     
+}
 // onkeyup function event
 document.onkeyup = function(event) {
 var userGuess = event.key;
@@ -57,5 +66,6 @@ letters.textContent = userGuess;
             // if statement
                 // if letter is in word, display in #word
                 // else letter is not in word, display in #letters, #guessCount -1
+
 
 }
