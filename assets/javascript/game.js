@@ -17,6 +17,10 @@ var winCount = document.getElementById("winCount");
 var word = document.getElementById("word");
 var guessCount = document.getElementById("guessCount");
 var letters = document.getElementById("letters");
+var choice = Math.floor(Math.random() * wordList.length);
+var answer = wordList[choice];
+
+
 
 // onkeyup function event
 document.onkeyup = function(event) {
@@ -24,12 +28,12 @@ document.onkeyup = function(event) {
 var userGuess = event.key;
 
 // make all keys uppercase
-//.toLowerCase()
-
+//.toUpperCase()
+userGuess = userGuess.toUpperCase();
 // determine what key is pressed
 letters.textContent = event.key; 
 
-// keep track of all letters pressed
+// keep track of all letters pressed // trigger-random-unsolved week 4 day 2
 
 // computer chooses a random word form array
 
