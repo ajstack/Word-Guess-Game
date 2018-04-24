@@ -77,9 +77,14 @@ for (var i = 0; i < letterBank.length; i++) {
     // Check letter and replace if correct {not working}
      function checkLetter(){
         for (var j = 0; j < wordLength; j++){
-            if (answer[j] = userGuess) {
-                answerBank[j] = userGuess;
-
+            if (wordList[j] = userGuess) {
+                display[j] = userGuess;
+                
+                // display correct letter instead of _
+            }
+            else {
+                // add to letterBank array and display incorrect letter in letters
+                // guessCount--
             }
         }
      }
