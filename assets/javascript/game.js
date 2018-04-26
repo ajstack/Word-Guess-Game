@@ -20,7 +20,7 @@ var guessCount = document.getElementById("guessCount"); // display how many gues
 var attemptsLeft = 10;                                  // Setting number of guesses
 var letters = document.getElementById("letters");       // display incorrect letters already guessed 
 var display = [wordLength];                             // display _ 
-var win = wordLength;                                   // number of correct letters needed to win
+var win = 0;                                   // number of correct letters needed to win
 var letterBank = [];                                    // empty array for incorrectly guessed letters
 var answerBank = [];                                    // empty array for correctly guessed letters
 
@@ -29,14 +29,14 @@ guessCount.textContent = attemptsLeft;
 
 
 // Display initial wins
-winCount.textContent = 0;
+winCount.textContent = win;
 
 
 // Choose random # to correspond with array words
 var choice = Math.floor(Math.random() * wordList.length);
 var answer = wordList[choice];
 var wordLength = answer.length;
-
+console.log(answer);
 
 // display how many letters from word chosen 
 for (var i = 0; i < wordLength; i++) {
@@ -44,24 +44,42 @@ for (var i = 0; i < wordLength; i++) {
     word.textContent = ([display.join("")]); 
 }
 
+function loadGame(){
+    attemptsLeft = 10;
+    choice = wordlist[Math.floor(Math.random() * wordList.length)];
+    document.getElementById(letters).innerHTML = "";
+    letterBank = [];
+}
+
+function winGameChecker(){
+    
+}
+
+
 // onkeyup function event
 document.onkeyup = function(event) {
-var userGuess = event.key;
-
+    var userGuess = event.key;
+    console.log(userGuess);
+    attemptsLeft--;
+    guessCount.textContent = attemptsLeft;
+    
+    if (attemptsLeft===0) {
+        alert("You lost!");
+    }
 // make all keys uppercase
-userGuess = userGuess.toUpperCase();
-
+    userGuess = userGuess.toUpperCase();
+    checkLetter();
 // print guess to html
 // letters.textContent = userGuess; 
 
 // keep track of all letters pressed // trigger-random-unsolved week 4 day 2 // drinklist-solved {not working correctly}
- letterBank.push(userGuess);
+    letterBank.push(userGuess);
 
-for (var i = 0; i < letterBank.length; i++) {
-    var letterDisplay = document.createElement("ul");
-    letterDisplay.textContent = letterBank[i];
-    letters.appendChild(letterDisplay);
- }
+    //var letterDisplay = document.createElement("ul");
+    //letterDisplay.textContent = letterBank;
+    //letters.appendChild(letterDisplay);
+    letters.textContent = letterBank;
+ 
 
 // for loop (var i=0; i<=(forever? until words run out?); i++)
     // if statement
@@ -72,12 +90,11 @@ for (var i = 0; i < letterBank.length; i++) {
             // if statement
                 // if letter is in word, display in word
                 // else letter is not in word, display in letters, guessCount -1
-
-
+    
     // Check letter and replace if correct {not working}
      function checkLetter(){
         for (var j = 0; j < wordLength; j++){
-            if (wordList[j] = userGuess) {
+            if (answer[j] == userGuess) {
                 display[j] = userGuess;
                 
                 // display correct letter instead of _
@@ -87,8 +104,9 @@ for (var i = 0; i < letterBank.length; i++) {
                 // guessCount--
             }
         }
+        word.textContent = display.join("");
      }
-
+     
 
 
 
