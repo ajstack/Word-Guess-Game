@@ -1,3 +1,5 @@
+//Don't forget to check HTML for correct script tag!
+
 // Declare variables and word array (array must be in all caps)
 var wordList = [
     "BATMAN",
@@ -66,13 +68,13 @@ document.onkeyup = function(event) {
     if (attemptsLeft===0) {
         alert("You lost!");
     }
-// make all keys uppercase
-    userGuess = userGuess.toUpperCase();
+    // make all keys uppercase
+    
     checkLetter();
-// print guess to html
-// letters.textContent = userGuess; 
+    // print guess to html
+    // letters.textContent = userGuess; 
 
-// keep track of all letters pressed // trigger-random-unsolved week 4 day 2 // drinklist-solved {not working correctly}
+    // keep track of all letters pressed // trigger-random-unsolved week 4 day 2 // drinklist-solved {not working correctly}
     letterBank.push(userGuess);
 
     //var letterDisplay = document.createElement("ul");
@@ -81,18 +83,10 @@ document.onkeyup = function(event) {
     letters.textContent = letterBank;
  
 
-// for loop (var i=0; i<=(forever? until words run out?); i++)
-    // if statement
-        // if word = true
-        // winCount++ 
-        // else if guessCount=0, restart
-        //else
-            // if statement
-                // if letter is in word, display in word
-                // else letter is not in word, display in letters, guessCount -1
     
-    // Check letter and replace if correct {not working}
+    // Check letter and replace if correct 
      function checkLetter(){
+        userGuess = userGuess.toUpperCase();
         for (var j = 0; j < wordLength; j++){
             if (answer[j] == userGuess) {
                 display[j] = userGuess;
@@ -100,6 +94,7 @@ document.onkeyup = function(event) {
                 // display correct letter instead of _
             }
             else {
+                
                 // add to letterBank array and display incorrect letter in letters
                 // guessCount--
             }
@@ -107,7 +102,6 @@ document.onkeyup = function(event) {
         word.textContent = display.join("");
      }
      
-
 
 
 
