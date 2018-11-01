@@ -22,7 +22,7 @@ var guessCount = document.getElementById("guessCount"); // display how many gues
 var attemptsLeft = 10;                                  // Setting number of guesses
 var letters = document.getElementById("letters");       // display incorrect letters already guessed 
 var display = [wordLength];                             // display _ 
-var win = 0;                                   // number of correct letters needed to win
+var win = 0;                                            // number of correct letters needed to win
 var letterBank = [];                                    // empty array for incorrectly guessed letters
 var answerBank = [];                                    // empty array for correctly guessed letters
 

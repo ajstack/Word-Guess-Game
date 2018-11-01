@@ -13,13 +13,13 @@ var wordList = [
     "CATWOMAN",
     "MRFREEZE",
     "BATGIRL",
-    "BATWOMAN" 
+    "BATWOMAN"
 ];
 
 var winCount = document.getElementById("winCount");     // display how many times user has won
 var word = document.getElementById("word");             // display word chosen
 var guessCount = document.getElementById("guessCount"); // display how many guesses left 
-var letters = document.getElementById("letters");       // display incorrect letters already guessed 
+var letters = document.getElementById("letters");       // display letters already guessed 
 
 var attemptsLeft = 10;                                  // Setting number of guesses
 var win = 0;                                            // number of correct letters needed to win
@@ -32,52 +32,59 @@ var letterBank = [];                                    // empty array for incor
 
 console.log(answer);
 
-// Display how many guesses left
-guessCount.textContent = attemptsLeft;
+function displayGame() {
+    //Display _
+    for (var i = 0; i < wordLength; i++) {
+        display[i] = " _ ";
+        word.textContent = ([display.join("")]);
+    }
+    // Display how many guesses left
+    guessCount.textContent = attemptsLeft;
 
-// Display initial wins
-winCount.textContent = win;
-
-//Display _
-for (var i = 0; i < wordLength; i++) {
-    display[i] = " _ ";
-    word.textContent = ([display.join("")]); 
+    // Display initial wins
+    winCount.textContent = win;
 }
 
 
-function loadGame(){
-    choice = wordlist[Math.floor(Math.random() * wordList.length)];
-    document.getElementById(letters).innerHTML = "";
-    letterBank = [];
+function loadGame() {
+    letters.innerHTML = "";
 }
 
-function checkLetter(letter){
-    for (var j = 0; j < wordLength; j++){
+function checkLetter(letter) {
+    for (var j = 0; j < wordLength; j++) {
         // display correct letter instead of _
         if (answer[j] === letter) {
             display[j] = letter;
         }
-       
+
     }
+    letterBank.push(letter);
     word.textContent = display.join("");
     attemptsLeft--;
-    letterBank.push(letter);
-    letters.textContent = letterBank;
 }
 
-function winGameChecker(){
- 
-}
-
-document.onkeyup = function(){
-    loadGame();
-    var userGuess = event.key;
-    //console.log(userGuess);
-    guessCount.textContent = attemptsLeft;
-    userGuess = userGuess.toUpperCase();
-    checkLetter(userGuess);
+function winGameCheck() {
     
-    console.log(letterBank);
-
-
 }
+
+function startGame() {
+
+    displayGame();
+
+    document.onkeyup = function () {
+        loadGame();
+        var userGuess = event.key;
+        //console.log(userGuess);
+        guessCount.textContent = attemptsLeft;
+        userGuess = userGuess.toUpperCase();
+        checkLetter(userGuess);
+
+        letters.textContent = letterBank;
+
+        console.log(letterBank);
+
+
+    }
+}
+
+startGame();
