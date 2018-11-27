@@ -35,6 +35,7 @@ var letterBank = [];                                    // empty array for incor
 console.log(answer);
 
 function displayGame() {
+    
     //Display _
     for (var i = 0; i < wordLength; i++) {
         display[i] = " _ ";
@@ -68,13 +69,27 @@ function checkLetter(letter) {
 
 function winGameCheck() {
 
-    if (display.length === wordLength) {
+    if (display.indexOf(" _ ") === -1) {
         win++
         console.log("success!");
+        console.log(win);
+        winCount.textContent = win;
+        reloadGame();
     }
     else if (attemptsLeft === -1) {
         console.log("try again");
+        reloadGame();
     }
+    
+}
+
+function reloadGame() {
+
+    attemptsLeft = 10;
+    letterBank = [];
+    //pick new word (not working)
+    choice = Math.floor(Math.random() * wordList.length);
+    startGame();
 }
 
 function startGame() {
@@ -84,17 +99,11 @@ function startGame() {
     document.onkeyup = function () {
         loadGame();
         var userGuess = event.key;
-        //console.log(userGuess);
         guessCount.textContent = attemptsLeft;
         userGuess = userGuess.toUpperCase();
         checkLetter(userGuess);
 
         letters.textContent = letterBank;
-
-
-
-
-
     }
 }
 
