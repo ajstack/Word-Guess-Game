@@ -16,11 +16,13 @@ var wordList = [
     "BATWOMAN"
 ];
 
+//HTML
 var winCount = document.getElementById("winCount");     // display how many times user has won
 var word = document.getElementById("word");             // display word chosen
 var guessCount = document.getElementById("guessCount"); // display how many guesses left 
 var letters = document.getElementById("letters");       // display letters already guessed 
 
+//Variables
 var attemptsLeft = 10;                                  // Setting number of guesses
 var win = 0;                                            // number of correct letters needed to win
 var choice = Math.floor(Math.random() * wordList.length);
@@ -56,15 +58,23 @@ function checkLetter(letter) {
         if (answer[j] === letter) {
             display[j] = letter;
         }
-
     }
     letterBank.push(letter);
     word.textContent = display.join("");
     attemptsLeft--;
+
+    winGameCheck();
 }
 
 function winGameCheck() {
-    
+
+    if (display.length === wordLength) {
+        win++
+        console.log("success!");
+    }
+    else if (attemptsLeft === -1) {
+        console.log("try again");
+    }
 }
 
 function startGame() {
@@ -81,7 +91,8 @@ function startGame() {
 
         letters.textContent = letterBank;
 
-        console.log(letterBank);
+
+
 
 
     }
