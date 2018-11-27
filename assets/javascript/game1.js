@@ -79,8 +79,7 @@ function winGameCheck() {
     else if (attemptsLeft === -1) {
         console.log("try again");
         reloadGame();
-    }
-    
+    } 
 }
 
 function reloadGame() {
@@ -89,6 +88,10 @@ function reloadGame() {
     letterBank = [];
     //pick new word (not working)
     choice = Math.floor(Math.random() * wordList.length);
+    answer = wordList[choice];
+    wordLength = answer.length;
+    display = [wordLength];
+    console.log(answer);
     startGame();
 }
 
