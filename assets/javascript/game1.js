@@ -86,7 +86,6 @@ function reloadGame() {
 
     attemptsLeft = 10;
     letterBank = [];
-    //pick new word (not working)
     choice = Math.floor(Math.random() * wordList.length);
     answer = wordList[choice];
     wordLength = answer.length;
