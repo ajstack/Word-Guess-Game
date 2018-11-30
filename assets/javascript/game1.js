@@ -1,6 +1,3 @@
-//rewriting this project I wrote so terribly before 
-//Don't forget to check HTML for correct script tag!
-
 //Declare word array
 var wordList = [
     "BATMAN",
@@ -31,9 +28,6 @@ var wordLength = answer.length;
 var display = [wordLength];                             // display _ 
 var letterBank = [];                                    // empty array for incorrectly guessed letters
 
-
-console.log(answer);
-
 function displayGame() {
     
     //Display _
@@ -50,18 +44,24 @@ function displayGame() {
 
 
 function loadGame() {
+
+    // empty letters in HTML
     letters.innerHTML = "";
 }
 
 function checkLetter(letter) {
+
+    // determine if the letter guessed is correct
     for (var j = 0; j < wordLength; j++) {
-        // display correct letter instead of _
         if (answer[j] === letter) {
             display[j] = letter;
         }
     }
+    // push correct letter into the letter bank
     letterBank.push(letter);
+    // display letter in HTML instead of _
     word.textContent = display.join("");
+    // subtract attempts
     attemptsLeft--;
 
     winGameCheck();
@@ -69,28 +69,27 @@ function checkLetter(letter) {
 
 function winGameCheck() {
 
+    // if no blank spaces are left add to the win count and restart game
     if (display.indexOf(" _ ") === -1) {
         win++
-        console.log("success!");
-        console.log(win);
         winCount.textContent = win;
         reloadGame();
     }
+    // if there are no attempts left restart game
     else if (attemptsLeft === -1) {
-        console.log("try again");
         reloadGame();
     } 
 }
 
 function reloadGame() {
 
+    // reset everything except wins
     attemptsLeft = 10;
     letterBank = [];
     choice = Math.floor(Math.random() * wordList.length);
     answer = wordList[choice];
     wordLength = answer.length;
     display = [wordLength];
-    console.log(answer);
     startGame();
 }
 
