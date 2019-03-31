@@ -14,10 +14,11 @@ var wordList = [
 ];
 
 //HTML
-var winCount = document.getElementById("winCount");     // display how many times user has won
-var word = document.getElementById("word");             // display word chosen
-var guessCount = document.getElementById("guessCount"); // display how many guesses left 
-var letters = document.getElementById("letters");       // display letters already guessed 
+var winCount = document.getElementById("winCount");                 // display how many times user has won
+var word = document.getElementById("word");                         // display word chosen
+var guessCount = document.getElementById("guessCount");             // display how many guesses left 
+var letters = document.getElementById("letters");                   // display letters already guessed
+var lastCorrectWord = document.getElementById("LastCorrectWord");   // display the last correct word
 
 //Variables
 var attemptsLeft = 10;                                  // Setting number of guesses
@@ -84,12 +85,14 @@ function winGameCheck() {
 function reloadGame() {
 
     // reset everything except wins
+    lastCorrectWord.textContent = answer;
     attemptsLeft = 10;
     letterBank = [];
     choice = Math.floor(Math.random() * wordList.length);
     answer = wordList[choice];
     wordLength = answer.length;
     display = [wordLength];
+
     startGame();
 }
 
