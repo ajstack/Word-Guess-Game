@@ -8,7 +8,7 @@ This is a simple Hangman game. Press any key to start guessing the Batman charac
 ## This project utilizes
 * HTML
 * CSS
-* Javascript
+* jQuery
 
 This project is maintained by Alicia Stack
 
